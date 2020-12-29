@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:santa_assistant/Global/BgStrips/Strips.dart';
 import 'package:santa_assistant/Global/Buttons/BlueCustomButton.dart';
@@ -48,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen>
                       child: Opacity(
                         opacity: animate.value,
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
@@ -103,8 +104,14 @@ class _SplashScreenState extends State<SplashScreen>
                     height: 20.0,
                   ),
                   Container(
-                    height: size.width * .5,
-                    width: size.width / 1.3,
+                    height: (MediaQuery.of(context).orientation ==
+                            Orientation.portrait)
+                        ? MediaQuery.of(context).size.width * .5
+                        : MediaQuery.of(context).size.height * .40,
+                    width: (MediaQuery.of(context).orientation ==
+                            Orientation.portrait)
+                        ? MediaQuery.of(context).size.width / 1.3
+                        : MediaQuery.of(context).size.height * .9,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
                             topRight: Radius.circular(10),
@@ -116,7 +123,10 @@ class _SplashScreenState extends State<SplashScreen>
                               blurRadius: 5)
                         ]),
                     child: Container(
-                      height: size.width * .14,
+                      height: (MediaQuery.of(context).orientation ==
+                              Orientation.portrait)
+                          ? MediaQuery.of(context).size.width * .14
+                          : MediaQuery.of(context).size.height * .05,
                       decoration: BoxDecoration(
                           color: greenColor(),
                           borderRadius: BorderRadius.only(
@@ -132,15 +142,15 @@ class _SplashScreenState extends State<SplashScreen>
                               fontSize: (MediaQuery.of(context).orientation ==
                                       Orientation.portrait)
                                   ? MediaQuery.of(context).size.width * .05
-                                  : MediaQuery.of(context).size.height * .09,
+                                  : MediaQuery.of(context).size.height * .05,
                               width: (MediaQuery.of(context).orientation ==
                                       Orientation.portrait)
                                   ? MediaQuery.of(context).size.width * .66
-                                  : MediaQuery.of(context).size.height * 0.58,
+                                  : MediaQuery.of(context).size.height * 0.70,
                               height: (MediaQuery.of(context).orientation ==
                                       Orientation.portrait)
                                   ? MediaQuery.of(context).size.width * .11
-                                  : MediaQuery.of(context).size.height * .15,
+                                  : MediaQuery.of(context).size.height * .10,
                               onTap: null),
                           SizedBox(
                             height: 20.0,
@@ -151,15 +161,15 @@ class _SplashScreenState extends State<SplashScreen>
                               fontSize: (MediaQuery.of(context).orientation ==
                                       Orientation.portrait)
                                   ? MediaQuery.of(context).size.width * .05
-                                  : MediaQuery.of(context).size.height * .09,
+                                  : MediaQuery.of(context).size.height * .05,
                               width: (MediaQuery.of(context).orientation ==
                                       Orientation.portrait)
                                   ? MediaQuery.of(context).size.width * .66
-                                  : MediaQuery.of(context).size.height * 0.58,
+                                  : MediaQuery.of(context).size.height * 0.70,
                               height: (MediaQuery.of(context).orientation ==
                                       Orientation.portrait)
                                   ? MediaQuery.of(context).size.width * .11
-                                  : MediaQuery.of(context).size.height * .15,
+                                  : MediaQuery.of(context).size.height * .10,
                               onTap: null),
                         ],
                       ),
